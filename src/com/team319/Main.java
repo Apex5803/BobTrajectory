@@ -22,23 +22,24 @@ public class Main {
 		//Standard configs between all trajectories
 		standardConfig.name = "StandardConfig";
 		standardConfig.dt = .01;
-		standardConfig.max_acc = 5.00;
+		standardConfig.max_acc = 10.0;
 		standardConfig.max_jerk = 60.0;
-		standardConfig.max_vel = 4.0; // started at 4.0, // gearbob was 6.0
-		standardConfig.wheelbase_width_feet = 32.5/12.0;
+		standardConfig.max_vel = 6.0; // started at 4.0, // gearbob was 6.0
+		standardConfig.wheelbase_width_feet = 45.0/12.0;
 		standardConfig.wheel_dia_inches = 3.5;
-		standardConfig.scale_factor = 2.0; //0.899 // gearbob is 2.35
+		standardConfig.scale_factor = 3.8; //0.899 // gearbob is 2.35
 		standardConfig.encoder_ticks_per_rev = 256; //1024
 		
 		SrxTranslatorConfig slowConfig = new SrxTranslatorConfig(standardConfig);
-		slowConfig.max_vel = 3.0 ; // 4.0;
+		slowConfig.max_vel = 6.0 ; // 4.0;
 		
 		
 		
 		BobPath FiveFeet = new BobPath(standardConfig, "FiveFeet", 1);
 		FiveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		FiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 0.0, Math.toRadians(0.0)));
-		
+		//FiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 0.0, Math.toRadians(0.0)));
+		//FiveFeet.addWaypoint(new WaypointSequence.Waypoint(0.01, 0.01, Math.toRadians(89.7)));
+		FiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, -3.0, Math.toRadians(89.9)));
 		
 		
 		
