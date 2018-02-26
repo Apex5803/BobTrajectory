@@ -4,6 +4,7 @@ import com.team254.lib.trajectory.WaypointSequence;
 import com.team254.lib.trajectory.io.VelocityOnlyFileSerializer;
 import com.team319.trajectory.BobPath;
 import com.team319.trajectory.BobPathGenerator;
+import com.team319.trajectory.SrxTranslator;
 import com.team319.trajectory.SrxTranslatorConfig;
 
 /**
@@ -35,26 +36,63 @@ public class Main {
 		
 		
 		
-		BobPath FiveFeet = new BobPath(standardConfig, "FiveFeet", 1);
-		FiveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		//FiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 0.0, Math.toRadians(0.0)));
-		//FiveFeet.addWaypoint(new WaypointSequence.Waypoint(0.01, 0.01, Math.toRadians(89.7)));
-		FiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, -3.0, Math.toRadians(89.9)));
+		BobPath SwitchLeft = new BobPath(standardConfig, "SwitchLeft", 1);
+		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
 		
 		
-		
-		BobPath OneFoot = new BobPath(standardConfig, "OneFoot", 1);
-		OneFoot.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		OneFoot.addWaypoint(new WaypointSequence.Waypoint(1.0, 0.0, Math.toRadians(0.0)));
-		
-	
+		BobPath SwitchRight= new BobPath(standardConfig, "SwitchRight", 1);
+		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(10.0, -3.0, Math.toRadians(10)));
 
-				BobPathGenerator.exportPath("Paths", FiveFeet);
-				//BobPathGenerator.exportPath("Paths", OneFoot);
-			
+		BobPath ScaleLeft= new BobPath(standardConfig, "ScaleLeft", -1);
+		ScaleLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 12.0, Math.toRadians(0)));
+		ScaleLeft.addWaypoint(new WaypointSequence.Waypoint(20.0, 12.0, Math.toRadians(0)));		
+		ScaleLeft.addWaypoint(new WaypointSequence.Waypoint(26.75, 18.0, Math.toRadians(89.9)));		
+		
+		BobPath ScaleRight= new BobPath(standardConfig, "ScaleRight", -1);
+		ScaleRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleRight.addWaypoint(new WaypointSequence.Waypoint(10.0, -8.0, Math.toRadians(0)));
+		ScaleRight.addWaypoint(new WaypointSequence.Waypoint(21.0, -8.0, Math.toRadians(0)));		
+		ScaleRight.addWaypoint(new WaypointSequence.Waypoint(28.75, -12.0, Math.toRadians(-89.9)));
+		
+		BobPath ScaleLeftStartLeft = new BobPath(standardConfig, "ScaleLeftStartLeft", -1);
+		ScaleLeftStartLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleLeftStartLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
+		
+		
+		BobPath ScaleRightStartLeft= new BobPath(standardConfig, "ScaleRightStartLeft", 1);
+		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(10.0, -3.0, Math.toRadians(10)));
+
+		BobPath ScaleLeftStartRight= new BobPath(standardConfig, "ScaleLeftStartRight", -1);
+		ScaleLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(9.0, 12.0, Math.toRadians(0)));
+		ScaleLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(20.0, 12.0, Math.toRadians(0)));		
+		ScaleLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(26.75, 18.0, Math.toRadians(89.9)));		
+		
+		BobPath ScaleRightStartRight= new BobPath(standardConfig, "ScaleRightStartRight", -1);
+		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(10.0, -8.0, Math.toRadians(0)));
+		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(21.0, -8.0, Math.toRadians(0)));		
+		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(28.75, -12.0, Math.toRadians(-89.9)));
+		
+		//BobPathGenerator.exportPath("Paths", SwitchLeft);
+		//BobPathGenerator.exportPath("Paths", SwitchRight);
+		//BobPathGenerator.exportPath("Paths", ScaleLeft);
+		//BobPathGenerator.exportPath("Paths", ScaleRight);
+		BobPathGenerator.exportPath("Paths", ScaleLeftStartLeft);
+		BobPathGenerator.exportPath("Paths", ScaleRightStartLeft);
+		BobPathGenerator.exportPath("Paths", ScaleLeftStartRight);
+		BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
+		
 		
 		//BobPathGenerator.appendAndExportPaths("Paths", "appendedPath", false, blueHopperThenShootAutoLeftSidePt2, toAppend);
 		//BobPathGenerator.appendAndExportPaths("Paths", "appendedAndFlippedPath", true, blueHopperThenShootAutoLeftSidePt2, toAppend); 
 		//redGear.exportPathWithSerializer(new VelocityOnlyFileSerializer(), "Paths");
 	}
 }
+
+
+
