@@ -26,20 +26,21 @@ public class Main {
 		standardConfig.max_acc = 10.0;
 		standardConfig.max_jerk = 60.0;
 		standardConfig.max_vel = 6.0; // started at 4.0, // gearbob was 6.0
-		standardConfig.wheelbase_width_feet = 45.0/12.0;
-		standardConfig.wheel_dia_inches = 3.5;
-		standardConfig.scale_factor = 3.8; //0.899 // gearbob is 2.35
-		standardConfig.encoder_ticks_per_rev = 256; //1024
+		standardConfig.wheelbase_width_feet = 39.0/12.0;
+		standardConfig.wheel_dia_inches = 6.0;
+		standardConfig.scale_factor = 1.0; //0.899 // gearbob is 2.35
+		standardConfig.encoder_ticks_per_rev = 4096; //1024
 		
 		SrxTranslatorConfig slowConfig = new SrxTranslatorConfig(standardConfig);
-		slowConfig.max_vel = 6.0 ; // 4.0;
+		slowConfig.max_vel = 4.0 ; // 4.0;
 		
-		
+		BobPath DriveForwardFiveFeet = new BobPath(standardConfig, "DriveForwardFiveFeet", 1);
+		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 3, Math.toRadians(89.8)));
 		
 		BobPath SwitchLeft = new BobPath(standardConfig, "SwitchLeft", 1);
 		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
 		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
-		
 		
 		BobPath SwitchRight= new BobPath(standardConfig, "SwitchRight", 1);
 		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
@@ -62,10 +63,18 @@ public class Main {
 		ScaleLeftStartLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
 		
 		
-		BobPath ScaleRightStartLeft= new BobPath(standardConfig, "ScaleRightStartLeft", 1);
+		BobPath ScaleRightStartLeft= new BobPath(standardConfig, "ScaleRightStartLeft", -1);
 		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(10.0, -3.0, Math.toRadians(10)));
+		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(13.0, 0.0, Math.toRadians(0)));
+		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(16.67, -2.0, Math.toRadians(-89.9)));
+		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(16.67, -21.0, Math.toRadians(-89.9)));
+		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(18.67, -24.0, Math.toRadians(-1.0)));
+		ScaleRightStartLeft.addWaypoint(new WaypointSequence.Waypoint(24.0, -27.0, Math.toRadians(-89.9)));
 
+
+		
+		
+		
 		BobPath ScaleLeftStartRight= new BobPath(standardConfig, "ScaleLeftStartRight", -1);
 		ScaleLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
 		ScaleLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(9.0, 12.0, Math.toRadians(0)));
@@ -78,14 +87,15 @@ public class Main {
 		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(21.0, -8.0, Math.toRadians(0)));		
 		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(28.75, -12.0, Math.toRadians(-89.9)));
 		
-		//BobPathGenerator.exportPath("Paths", SwitchLeft);
-		//BobPathGenerator.exportPath("Paths", SwitchRight);
-		//BobPathGenerator.exportPath("Paths", ScaleLeft);
-		//BobPathGenerator.exportPath("Paths", ScaleRight);
+		BobPathGenerator.exportPath("Paths", SwitchLeft);
+		BobPathGenerator.exportPath("Paths", SwitchRight);
+		BobPathGenerator.exportPath("Paths", ScaleLeft);
+		BobPathGenerator.exportPath("Paths", ScaleRight);
 		BobPathGenerator.exportPath("Paths", ScaleLeftStartLeft);
 		BobPathGenerator.exportPath("Paths", ScaleRightStartLeft);
 		BobPathGenerator.exportPath("Paths", ScaleLeftStartRight);
 		BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
+		BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
 		
 		
 		//BobPathGenerator.appendAndExportPaths("Paths", "appendedPath", false, blueHopperThenShootAutoLeftSidePt2, toAppend);
