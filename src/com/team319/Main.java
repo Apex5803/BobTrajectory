@@ -36,7 +36,11 @@ public class Main {
 		
 		BobPath DriveForwardFiveFeet = new BobPath(standardConfig, "DriveForwardFiveFeet", 1);
 		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 3, Math.toRadians(89.8)));
+		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 0, Math.toRadians(0)));
+		
+		BobPath DriveForwardTwelveFeet = new BobPath(standardConfig, "DriveForwardTwelveFeet", 1);
+		DriveForwardTwelveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		DriveForwardTwelveFeet.addWaypoint(new WaypointSequence.Waypoint(12.0, 0, Math.toRadians(0)));
 		
 		BobPath SwitchLeft = new BobPath(standardConfig, "SwitchLeft", 1);
 		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
@@ -93,7 +97,8 @@ public class Main {
 		BobPathGenerator.exportPath("Paths", ScaleRightStartLeft);
 		BobPathGenerator.exportPath("Paths", ScaleLeftStartRight);
 		BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
-		//BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
+		BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
+		BobPathGenerator.exportPath("Paths", DriveForwardTwelveFeet);
 		
 		
 		//BobPathGenerator.appendAndExportPaths("Paths", "appendedPath", false, blueHopperThenShootAutoLeftSidePt2, toAppend);
