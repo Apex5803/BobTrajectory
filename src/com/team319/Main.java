@@ -16,6 +16,12 @@ import com.team319.trajectory.SrxTranslatorConfig;
  */
 public class Main {
 
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		//SrxTranslator translator = new SrxTranslator();
 		SrxTranslatorConfig standardConfig = new SrxTranslatorConfig();
@@ -119,9 +125,22 @@ public class Main {
 		
 		BobPath SwitchLeftFromRight= new BobPath(standardConfig, "SwitchLeftFromRight", 1);
 		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(19.0, 3, Math.toRadians(-89.9)));
+		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(15, 0, 0));
+		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(18, 5, Math.toRadians(89.9)));
+		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(18, 17, Math.toRadians(89.9)));		
+		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(17, 18, Math.toRadians(178.9)));
+		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(14, 14, Math.toRadians(268.9)));
+		SwitchLeftFromRight.addWaypoint(new WaypointSequence.Waypoint(14, 11, Math.toRadians(310.9)));
 
-		
+		BobPath SwitchRightFromLeft= new BobPath(standardConfig, "SwitchRightFromLeft", 1);
+		SwitchRightFromLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		SwitchRightFromLeft.addWaypoint(new WaypointSequence.Waypoint(17, 0, 0));
+		SwitchRightFromLeft.addWaypoint(new WaypointSequence.Waypoint(20, -3, Math.toRadians(-89.9)));
+		SwitchRightFromLeft.addWaypoint(new WaypointSequence.Waypoint(18, -11, Math.toRadians(-89.9)));		
+		SwitchRightFromLeft.addWaypoint(new WaypointSequence.Waypoint(14, -21, Math.toRadians(-178.9)));
+		SwitchRightFromLeft.addWaypoint(new WaypointSequence.Waypoint(14, -11, Math.toRadians(-268.9)));
+		SwitchRightFromLeft.addWaypoint(new WaypointSequence.Waypoint(14, 11, Math.toRadians(310.9)));
+
 		//BobPathGenerator.exportPath("Paths", SwitchLeft);
 		//BobPathGenerator.exportPath("Paths", SwitchRight);
 		//BobPathGenerator.exportPath("Paths", ScaleLeft);
@@ -132,9 +151,11 @@ public class Main {
 		//BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
 		//BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
 		//BobPathGenerator.exportPath("Paths", DriveForwardTwelveFeet);
-		BobPathGenerator.exportPath("Paths", SwitchLeftFromLeft); 
-		BobPathGenerator.exportPath("Paths", SwitchRightFromRight); 
-		
+		//BobPathGenerator.exportPath("Paths", SwitchLeftFromLeft); 
+		//BobPathGenerator.exportPath("Paths", SwitchRightFromRight); 
+		BobPathGenerator.exportPath("Paths", SwitchLeftFromRight); 
+		BobPathGenerator.exportPath("Paths", SwitchRightFromLeft); 
+
 		
 		
 		//BobPathGenerator.appendAndExportPaths("Paths", "appendedPath", false, blueHopperThenShootAutoLeftSidePt2, toAppend);
