@@ -26,7 +26,7 @@ public class Main {
 		standardConfig.max_acc = 10.0;
 		standardConfig.max_jerk = 60.0;
 		standardConfig.max_vel = 6.0; // started at 4.0, // gearbob was 6.0
-		standardConfig.wheelbase_width_feet = 39.0/12.0;
+		standardConfig.wheelbase_width_feet = 27.0/12.0;
 		standardConfig.wheel_dia_inches = 6.0;
 		standardConfig.scale_factor = 1.0; //0.899 // gearbob is 2.35
 		standardConfig.encoder_ticks_per_rev = 4096; //1024
@@ -36,7 +36,7 @@ public class Main {
 		
 		BobPath DriveForwardFiveFeet = new BobPath(standardConfig, "DriveForwardFiveFeet", 1);
 		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 0, Math.toRadians(0)));
+		DriveForwardFiveFeet.addWaypoint(new WaypointSequence.Waypoint(5.0, 3, Math.toRadians(89.9)));
 		
 		BobPath DriveForwardTwelveFeet = new BobPath(standardConfig, "DriveForwardTwelveFeet", 1);
 		DriveForwardTwelveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
