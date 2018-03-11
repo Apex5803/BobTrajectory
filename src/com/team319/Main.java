@@ -50,6 +50,14 @@ public class Main {
 		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
 		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(10.0, -3.0, Math.toRadians(10)));
 
+		BobPath SwitchLeftStartLeft = new BobPath(standardConfig, "SwitchLeftStartLeft", 1);
+		SwitchLeftStartLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		SwitchLeftStartLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
+		
+		BobPath SwitchLeftStartRight = new BobPath(standardConfig, "SwitchLeftStartRight", 1);
+		SwitchLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		SwitchLeftStartRight.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
+		
 		BobPath ScaleLeft= new BobPath(standardConfig, "ScaleLeft", -1);
 		ScaleLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
 		ScaleLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 12.0, Math.toRadians(0)));
@@ -89,16 +97,29 @@ public class Main {
 		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(20, 0, 0));
 		ScaleRightStartRight.addWaypoint(new WaypointSequence.Waypoint(24.75, -4.5, Math.toRadians(-89.9)));
 		
-		BobPathGenerator.exportPath("Paths", SwitchLeft);
-		BobPathGenerator.exportPath("Paths", SwitchRight);
-		BobPathGenerator.exportPath("Paths", ScaleLeft);
-		BobPathGenerator.exportPath("Paths", ScaleRight);
-		BobPathGenerator.exportPath("Paths", ScaleLeftStartLeft);
-		BobPathGenerator.exportPath("Paths", ScaleRightStartLeft);
-		BobPathGenerator.exportPath("Paths", ScaleLeftStartRight);
-		BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
-		BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
-		BobPathGenerator.exportPath("Paths", DriveForwardTwelveFeet);
+		BobPath ScaleLeftNearCube= new BobPath(standardConfig, "ScaleLeftNearCube", -1);
+		ScaleLeftNearCube.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleLeftNearCube.addWaypoint(new WaypointSequence.Waypoint(4, -2, Math.toRadians(-45)));
+		ScaleLeftNearCube.addWaypoint(new WaypointSequence.Waypoint(10.67, -7, Math.toRadians(-89.9)));
+
+		BobPath ScaleLeftFarCube= new BobPath(standardConfig, "ScaleLeftFarCube", -1);
+		ScaleLeftFarCube.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
+		ScaleLeftFarCube.addWaypoint(new WaypointSequence.Waypoint(3, -1, Math.toRadians(45)));
+		ScaleLeftFarCube.addWaypoint(new WaypointSequence.Waypoint(10.67, -19, Math.toRadians(-89.9)));
+
+		
+		//BobPathGenerator.exportPath("Paths", SwitchLeft);
+		//BobPathGenerator.exportPath("Paths", SwitchRight);
+		//BobPathGenerator.exportPath("Paths", ScaleLeft);
+		//BobPathGenerator.exportPath("Paths", ScaleRight);
+		//BobPathGenerator.exportPath("Paths", ScaleLeftStartLeft);
+		//BobPathGenerator.exportPath("Paths", ScaleRightStartLeft);
+		//BobPathGenerator.exportPath("Paths", ScaleLeftStartRight);
+		//BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
+		//BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
+		//BobPathGenerator.exportPath("Paths", DriveForwardTwelveFeet);
+		BobPathGenerator.exportPath("Paths", ScaleLeftNearCube);
+
 		
 		
 		//BobPathGenerator.appendAndExportPaths("Paths", "appendedPath", false, blueHopperThenShootAutoLeftSidePt2, toAppend);
