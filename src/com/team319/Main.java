@@ -48,6 +48,10 @@ public class Main {
 		DriveForwardTwelveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
 		DriveForwardTwelveFeet.addWaypoint(new WaypointSequence.Waypoint(12.0, 0, Math.toRadians(0)));
 		
+		BobPath DriveBackwardTwelveFeet = new BobPath (standardConfig, "DriveBackwardTwelveFeet", -1);
+		DriveBackwardTwelveFeet.addWaypoint(new WaypointSequence.Waypoint(0, 0,0));
+		DriveBackwardTwelveFeet.addWaypoint(new WaypointSequence.Waypoint(12.0, 0,0));
+		
 		BobPath SwitchLeft = new BobPath(standardConfig, "SwitchLeft", 1);
 		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
 		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
@@ -116,17 +120,18 @@ public class Main {
 		ScaleLeftFarCube.addWaypoint(new WaypointSequence.Waypoint(10.67, -19, Math.toRadians(-89.9)));
 
 		
-//		BobPathGenerator.exportPath("Paths", SwitchLeft);
-//		BobPathGenerator.exportPath("Paths", SwitchRight);
-//		BobPathGenerator.exportPath("Paths", ScaleLeft);
-//		BobPathGenerator.exportPath("Paths", ScaleRight);
-//		BobPathGenerator.exportPath("Paths", ScaleLeftStartLeft);
-//		BobPathGenerator.exportPath("Paths", ScaleRightStartLeft);
+		BobPathGenerator.exportPath("Paths", SwitchLeft);
+		BobPathGenerator.exportPath("Paths", SwitchRight);
+		BobPathGenerator.exportPath("Paths", ScaleLeft);
+		BobPathGenerator.exportPath("Paths", ScaleRight);
+		BobPathGenerator.exportPath("Paths", ScaleLeftStartLeft);
+		BobPathGenerator.exportPath("Paths", ScaleRightStartLeft);
 		BobPathGenerator.exportPath("Paths", ScaleLeftStartRight);
-//		BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
-//		BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
-//		BobPathGenerator.exportPath("Paths", DriveForwardTwelveFeet);
-//		BobPathGenerator.exportPath("Paths", ScaleLeftNearCube);
+		BobPathGenerator.exportPath("Paths", ScaleRightStartRight);
+		BobPathGenerator.exportPath("Paths", DriveForwardFiveFeet);
+		BobPathGenerator.exportPath("Paths", DriveForwardTwelveFeet);
+		BobPathGenerator.exportPath("Paths", ScaleLeftNearCube);
+		BobPathGenerator.exportPath("Paths", DriveBackwardTwelveFeet);
 
 		
 		
