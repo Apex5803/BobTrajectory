@@ -54,11 +54,11 @@ public class Main {
 		
 		BobPath SwitchLeft = new BobPath(standardConfig, "SwitchLeft", 1);
 		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 5.0, Math.toRadians(0)));
+		SwitchLeft.addWaypoint(new WaypointSequence.Waypoint(9.0, 4.5, Math.toRadians(0)));
 		
 		BobPath SwitchRight= new BobPath(standardConfig, "SwitchRight", 1);
 		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
-		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(10.0, -3.0, Math.toRadians(0)));
+		SwitchRight.addWaypoint(new WaypointSequence.Waypoint(10.0, -2.5, Math.toRadians(0)));
 
 		BobPath SwitchLeftStartLeft = new BobPath(standardConfig, "SwitchLeftStartLeft", 1);
 		SwitchLeftStartLeft.addWaypoint(new WaypointSequence.Waypoint(0, 0, 0));
