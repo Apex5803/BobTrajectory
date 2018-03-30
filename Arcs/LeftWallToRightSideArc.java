@@ -1,7 +1,7 @@
-package org.usfirst.frc.team319.arcs;
+package org.usfirst.frc.team5803.robot.arcs;
 
-import org.usfirst.frc.team319.models.SrxMotionProfile;
-import org.usfirst.frc.team319.models.SrxTrajectory;
+import org.usfirst.frc.team5803.robot.models.SrxMotionProfile;
+import org.usfirst.frc.team5803.robot.utils.SrxTrajectory;
 
 public class LeftWallToRightSideArc extends SrxTrajectory{
 	

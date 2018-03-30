@@ -301,14 +301,11 @@ public class Main {
 	}
 	
 	private static void copyArcsToRobotCode() {
-		BobPathGenerator.copyFilesToRelativeDirectory("Arcs", "..\\frc319-2018\\src\\org\\usfirst\\frc\\team319\\arcs");
+		BobPathGenerator.copyFilesToRelativeDirectory("Arcs", "C:\\Users\\Apex5803\\eclipse-workspace\\robot5803\\src\\org\\usfirst\\frc\\team5803\\robot\\arcs");
 	}
 	
 	private static void copyPathsToRobotCode() {
-		BobPathGenerator.copyFilesToRelativeDirectory("Paths", "..\\frc319-2018\\src\\org\\usfirst\\frc\\team319\\paths");
+		BobPathGenerator.copyFilesToRelativeDirectory("Paths", "C:\\Users\\Apex5803\\eclipse-workspace\\robot5803\\src\\org\\usfirst\\frc\\team5803\\robot\\paths");
 	}
 	
 }
-
-
-
