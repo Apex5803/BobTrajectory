@@ -35,15 +35,15 @@ public class Main {
 		powerUpConfig = new SrxTranslatorConfig();
 		powerUpConfig.name = "powerUpConfig";
 		powerUpConfig.dt = .01;
-		powerUpConfig.max_acc = 8.0;
+		powerUpConfig.max_acc = 12.0;
 		powerUpConfig.max_jerk = 60.0;
 		powerUpConfig.max_vel = 10.0; // 8.0
-		powerUpConfig.wheelbase_width_feet = 23.5 / 12.0;// 23.5, then 29.5, 35.5
+		powerUpConfig.wheelbase_width_feet = 22.5 / 12.0;
 		powerUpConfig.wheel_dia_inches = 6.0;
-		powerUpConfig.scale_factor = 7.618; //north shore value is 5.685
+		powerUpConfig.scale_factor = 1.0; 
 		powerUpConfig.encoder_ticks_per_rev = 4096;
-		powerUpConfig.robotLength = 39;
-		powerUpConfig.robotWidth = 33;
+		powerUpConfig.robotLength = 38.5;
+		powerUpConfig.robotWidth = 33.5;
 		powerUpConfig.highGear = true;
 
 		switchConfig = new SrxTranslatorConfig(powerUpConfig);
@@ -52,10 +52,10 @@ public class Main {
 		longDistanceConfig = new SrxTranslatorConfig(switchConfig);
 		longDistanceConfig.max_vel = 8.0;
 
-		//generateMisc(powerUpConfig);
-		//generateCenterSwitch(switchConfig);
-		generateRightSide(powerUpConfig);
-		generateLeftSide(powerUpConfig);
+		generateMisc(powerUpConfig);
+		generateCenterSwitch(powerUpConfig);
+//		generateRightSide(powerUpConfig);
+//		generateLeftSide(powerUpConfig);
 		
 		copyArcsToRobotCode();
 		//copyPathsToRobotCode();
@@ -98,8 +98,8 @@ public class Main {
 		
 		BobPath TuningTestAuto = new BobPath(config, "TuningTestAuto", 1);
 		TuningTestAuto.addWaypoint(centerStartingWaypoint);
-		TuningTestAuto.addWaypointRelative(4.0, 5.0, 89.99);
-		TuningTestAuto.addWaypointRelative(0.0, 10.0, 0.0);
+		TuningTestAuto.addWaypointRelative(5.0, 0.0, 0.0);
+//		TuningTestAuto.addWaypointRelative(0.0, 10.0, 0.0);
 		
 		BobPath TuningTestAutoBackward = new BobPath(config, "TuningTestAutoBackward", 1);
 		TuningTestAutoBackward.addWaypoint(TuningTestAuto.getLastWaypoint());
@@ -119,7 +119,7 @@ public class Main {
 		BobPathGenerator.exportArcToJavaFile(FifteenFeetReverse);
 		BobPathGenerator.exportArcToJavaFile(BackwardsThreeFeet);
 		BobPathGenerator.exportArcToJavaFile(TuningTestAuto);
-		BobPathGenerator.exportArcToJavaFile(TuningTestAutoBackward);
+//		BobPathGenerator.exportArcToJavaFile(TuningTestAutoBackward);
 		BobPathGenerator.exportArcToJavaFile(StraightForwardTuning);
 		
 	}
