@@ -47,12 +47,13 @@ public class Main {
 		powerUpConfig.highGear = true;
 
 		switchConfig = new SrxTranslatorConfig(powerUpConfig);
-		switchConfig.max_vel = 6.0;
-
+		//switchConfig.max_vel = 6.0;
+		switchConfig.max_acc = 10.0;
+		
 		longDistanceConfig = new SrxTranslatorConfig(switchConfig);
 		longDistanceConfig.max_vel = 8.0;
 
-		generateMisc(powerUpConfig);
+		//generateMisc(powerUpConfig);
 		generateCenterSwitch(powerUpConfig);
 //		generateRightSide(powerUpConfig);
 //		generateLeftSide(powerUpConfig);
@@ -129,7 +130,8 @@ public class Main {
 		// --------------------RIGHT SIDE AUTOS----------//
 		BobPath CenterToRightSwitch = new BobPath(config, "CenterToRightSwitch", 1); // 3 seconds
 		CenterToRightSwitch.addWaypoint(centerStartingWaypoint);
-		CenterToRightSwitch.addWaypointRelative(8.375, -4.0, 0.0);
+		CenterToRightSwitch.addWaypointRelative(1.5, -2.5, 89.9);
+		CenterToRightSwitch.addWaypointRelative(3, -1, 89.9);
 
 		BobPath CenterToRightSwitchPt2 = new BobPath(config, "CenterToRightSwitchPt2", -1); // 4 seconds
 		CenterToRightSwitchPt2.addWaypoint(CenterToRightSwitch.getLastWaypoint());
@@ -155,7 +157,8 @@ public class Main {
 
 		BobPath CenterToLeftSwitch = new BobPath(config, "CenterToLeftSwitch", 1);
 		CenterToLeftSwitch.addWaypoint(centerStartingWaypoint);
-		CenterToLeftSwitch.addWaypointRelative(8.375, 5.0, 0.0);
+		CenterToLeftSwitch.addWaypointRelative(2, 3, 89.9);
+		CenterToLeftSwitch.addWaypointRelative(4.25, 1.5, 89.9);
 
 		BobPath CenterToLeftSwitchPt2 = new BobPath(config, "CenterToLeftSwitchPt2", -1);
 		CenterToLeftSwitchPt2.addWaypoint(CenterToLeftSwitch.getLastWaypoint());
@@ -178,18 +181,18 @@ public class Main {
 		CenterToLeftScale.addWaypointRelative(6.375, 8.0, 45.0);
 
 		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitch);
-		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt2);
-		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt3);
-		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt4);
-		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt5);
-		BobPathGenerator.exportArcToJavaFile(CenterToRightScale);
+//		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt2);
+//		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt3);
+//		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt4);
+//		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt5);
+//		BobPathGenerator.exportArcToJavaFile(CenterToRightScale);
 
 		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitch);
-		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt2);
-		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt3);
-		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt4);
-		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt5);
-		BobPathGenerator.exportArcToJavaFile(CenterToLeftScale);
+//		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt2);
+//		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt3);
+//		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt4);
+//		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt5);
+//		BobPathGenerator.exportArcToJavaFile(CenterToLeftScale);
 
 	}
 
