@@ -29,6 +29,8 @@ public class Main {
 	public static SrxTranslatorConfig powerUpConfig;
 	public static SrxTranslatorConfig switchConfig;
 	public static SrxTranslatorConfig longDistanceConfig;
+	public static SrxTranslatorConfig CrossScaleConfig;
+
 
 	public static void main(String[] args) {
 
@@ -51,11 +53,16 @@ public class Main {
 		switchConfig.max_acc = 10.0;
 		
 		longDistanceConfig = new SrxTranslatorConfig(switchConfig);
-		longDistanceConfig.max_vel = 8.0;
+		longDistanceConfig.max_vel = 12.0;
+		longDistanceConfig.max_acc = 14.0;
 
+		CrossScaleConfig = new SrxTranslatorConfig(switchConfig);
+		CrossScaleConfig.max_vel = 12.0;
+		CrossScaleConfig.max_acc = 10.0;
+		
 		//generateMisc(powerUpConfig);
 		generateCenterSwitch(powerUpConfig);
-//		generateRightSide(powerUpConfig);
+		generateRightSide(longDistanceConfig);
 //		generateLeftSide(powerUpConfig);
 		
 		copyArcsToRobotCode();
@@ -187,7 +194,7 @@ public class Main {
 //		BobPathGenerator.exportArcToJavaFile(CenterToRightSwitchPt5);
 //		BobPathGenerator.exportArcToJavaFile(CenterToRightScale);
 
-		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitch);
+//		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitch);
 //		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt2);
 //		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt3);
 //		BobPathGenerator.exportArcToJavaFile(CenterToLeftSwitchPt4);
@@ -198,64 +205,28 @@ public class Main {
 
 	private static void generateRightSide(SrxTranslatorConfig config) {
 
-		BobPath RightWallToRightScale = new BobPath(config, "RightWallToRightScale", -1);
-		RightWallToRightScale.addWaypoint(rightSideStartingWaypoint);
-		RightWallToRightScale.addWaypointRelative(16.0, 1.0, 10.0);
-		RightWallToRightScale.addWaypointRelative(6.5, 2.0, -10.0);
+		BobPath ScaleRightStartRight = new BobPath(config, "ScaleRightStartRight", -1);
+		ScaleRightStartRight.addWaypoint(rightSideStartingWaypoint);
+		ScaleRightStartRight.addWaypointRelative(21.0, -1.0, 0.0);
+		ScaleRightStartRight.addWaypointRelative(3.75, -3, -89.9);
 		//RightWallToRightScale.addWaypointRelative(22.5, 0.0, 0.0);
-
-		BobPath ScaleToSwitchCubeRightSide = new BobPath(config, "ScaleToSwitchCubeRightSide", 1);
-		//ScaleToSwitchCubeRightSide.addWaypoint(19.13,7.29,0.00);
-		ScaleToSwitchCubeRightSide.addWaypoint(RightWallToRightScale.getLastWaypoint());
-		ScaleToSwitchCubeRightSide.addWaypointRelative(-5.0, 0.5, 0.0);
-
-		BobPath SwitchCubeToScaleRightSide = new BobPath(config, "SwitchCubeToScaleRightSide", -1);
-		SwitchCubeToScaleRightSide.addWaypoint(ScaleToSwitchCubeRightSide.getLastWaypoint());
-		SwitchCubeToScaleRightSide.addWaypointRelative(6.0, -1.5, 0.0);
 		
-		BobPath RightWallToRightSwitch = new BobPath(config, "RightWallToRightSwitch", -1);
-		RightWallToRightSwitch.addWaypoint(rightSideStartingWaypoint);
-		RightWallToRightSwitch.addWaypointRelative(17.0, -1.0, -30.0);
-
-		BobPath RightWallToRightSwitchPt2 = new BobPath(config, "RightWallToRightSwitchPt2", 1);
-		RightWallToRightSwitchPt2.addWaypoint(RightWallToRightSwitch.getLastWaypoint());
-		RightWallToRightSwitchPt2.addWaypointRelative(2.0, -1.0, -30.0);
-
-		BobPath RightWallToLeftSide = new BobPath(config, "RightWallToLeftSide", -1);
-		RightWallToLeftSide.addWaypoint(rightSideStartingWaypoint);
-		RightWallToLeftSide.addWaypointRelative(13.0, 0.0, 0.0);
-		RightWallToLeftSide.addWaypointRelative(3.0, 3.5, 89.99);
-
-		BobPath RightWallToLeftScale = new BobPath(config, "RightWallToLeftScale", -1);
-		RightWallToLeftScale.addWaypoint(rightSideStartingWaypoint);
-		RightWallToLeftScale.addWaypointRelative(11.5, 0.0, 0.0);
-		RightWallToLeftScale.addWaypointRelative(4.0, 5.0, 89.99);
-		RightWallToLeftScale.addWaypointRelative(0.0, 7.0, 0.0);
-		RightWallToLeftScale.addWaypointRelative(6.0, 4.0, -89.99);
+		BobPath ScaleLeftStartRight = new BobPath(CrossScaleConfig, "ScaleLeftStartRight", -1);
+		ScaleLeftStartRight.addWaypoint(rightSideStartingWaypoint);
+		ScaleLeftStartRight.addWaypointRelative(12.0, 0.0, 0.0);
+		ScaleLeftStartRight.addWaypointRelative(4.25, 5, 89.9);
 		
-		BobPath ScaleToSwitchCubeLeftSide = new BobPath(config, "ScaleToSwitchCubeLeftSide", 1);
-		ScaleToSwitchCubeLeftSide.addWaypoint(RightWallToLeftScale.getLastWaypoint());
-		ScaleToSwitchCubeLeftSide.addWaypointRelative(-6.0, -1.5, 0.0);
+		BobPath ScaleLeftStartRightpt2 = new BobPath(CrossScaleConfig, "ScaleLeftStartRightpt2", -1);
+//		ScaleLeftStartRightpt2.addWaypoint(ScaleLeftStartRight.getLastWaypoint());
+		ScaleLeftStartRightpt2.addWaypoint(0, 0, 0.0);
+		ScaleLeftStartRightpt2.addWaypointRelative(10, 0, 0.0);
+//		ScaleLeftStartRightpt2.addWaypointRelative(2.75, 4, -89.9);
+//		ScaleLeftStartRightpt2.addWaypointRelative(4, 3, 89.9);
 
-		BobPath SwitchCubeToScaleLeftSide = new BobPath(config, "SwitchCubeToScaleLeftSide", -1);
-		SwitchCubeToScaleLeftSide.addWaypoint(ScaleToSwitchCubeLeftSide.getLastWaypoint());
-		SwitchCubeToScaleLeftSide.addWaypointRelative(6.0, 1.5, 0.0);
-		
-		BobPath RightWallToRightScaleNullZone = new BobPath(config, "RightWallToRightScaleNullZone", -1);
-		RightWallToRightScaleNullZone.addWaypoint(rightSideStartingWaypoint);
-		RightWallToRightScaleNullZone.addWaypointRelative(22.0, -2.0, 0.0);
-		RightWallToRightScaleNullZone.addWaypointRelative(3.0, 3.0, 89.99);
+//		BobPathGenerator.exportArcToJavaFile(ScaleRightStartRight);
+		BobPathGenerator.exportArcToJavaFile(ScaleLeftStartRight);
+		BobPathGenerator.exportArcToJavaFile(ScaleLeftStartRightpt2);
 
-		BobPathGenerator.exportArcToJavaFile(RightWallToRightScale);
-		BobPathGenerator.exportArcToJavaFile(ScaleToSwitchCubeRightSide);
-		BobPathGenerator.exportArcToJavaFile(SwitchCubeToScaleRightSide);
-		BobPathGenerator.exportArcToJavaFile(RightWallToRightSwitch);
-		BobPathGenerator.exportArcToJavaFile(RightWallToRightSwitchPt2);
-		BobPathGenerator.exportArcToJavaFile(RightWallToLeftSide);
-		BobPathGenerator.exportArcToJavaFile(RightWallToLeftScale);
-		BobPathGenerator.exportArcToJavaFile(ScaleToSwitchCubeLeftSide);
-		BobPathGenerator.exportArcToJavaFile(SwitchCubeToScaleLeftSide);
-		BobPathGenerator.exportArcToJavaFile(RightWallToRightScaleNullZone);
 		
 	}
 
