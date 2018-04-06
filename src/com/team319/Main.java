@@ -139,7 +139,7 @@ public class Main {
 		CenterToRightSwitch.addWaypoint(centerStartingWaypoint);
 		// CenterToRightSwitch.addWaypointRelative(1.5, -1.5, -70);
 		// CenterToRightSwitch.addWaypointRelative(5, -1.5, 70);
-		CenterToRightSwitch.addWaypointRelative(8, -4.0, 0);
+		CenterToRightSwitch.addWaypointRelative(8.5, -4.0, 0);
 
 		BobPath CenterToRightSwitchPt2 = new BobPath(config, "CenterToRightSwitchPt2", -1); // 4 seconds
 		CenterToRightSwitchPt2.addWaypoint(CenterToRightSwitch.getLastWaypoint());
@@ -157,12 +157,11 @@ public class Main {
 		CenterToRightSwitchPt5.addWaypoint(CenterToRightSwitchPt4.getLastWaypoint());
 		CenterToRightSwitchPt5.addWaypointRelative(6.75, -4.0, 0.0);
 
-
 		// --------------------LEFT SIDE AUTOS----------//
 
 		BobPath CenterToLeftSwitch = new BobPath(config, "CenterToLeftSwitch", 1);
 		CenterToLeftSwitch.addWaypoint(centerStartingWaypoint);
-		CenterToLeftSwitch.addWaypointRelative(9, 5.5, 0);
+		CenterToLeftSwitch.addWaypointRelative(9.5, 5.5, 0);
 		// CenterToLeftSwitch.addWaypointRelative(2, 3, 89.9);
 		// CenterToLeftSwitch.addWaypointRelative(4.25, 1.5, 89.9);
 
@@ -200,12 +199,12 @@ public class Main {
 
 		BobPath ScaleRightStartRight = new BobPath(config, "ScaleRightStartRight", -1);
 		ScaleRightStartRight.addWaypoint(rightSideStartingWaypoint);
-		ScaleRightStartRight.addWaypointRelative(21.0, -1.0, 0.0);
+		ScaleRightStartRight.addWaypointRelative(21.0, -0.5, 0.0);
 		ScaleRightStartRight.addWaypointRelative(3.75, -3, -89.9);
 
 		BobPath ScaleLeftStartRight = new BobPath(CrossScaleConfig, "ScaleLeftStartRight", -1);
 		ScaleLeftStartRight.addWaypoint(rightSideStartingWaypoint);
-		ScaleLeftStartRight.addWaypointRelative(8.5, -1.0, 0.0);
+		ScaleLeftStartRight.addWaypointRelative(10, -1.0, 0.0);
 		ScaleLeftStartRight.addWaypointRelative(6.25, 5, 79.9);
 		ScaleLeftStartRight.addWaypointRelative(1, 10, 0);
 		ScaleLeftStartRight.addWaypointRelative(5, 4, -59.9);
@@ -213,11 +212,11 @@ public class Main {
 
 		BobPath StartRightFiftyFifty = new BobPath(CrossScaleConfig, "StartRightFiftyFifty", -1);
 		StartRightFiftyFifty.addWaypoint(rightSideStartingWaypoint);
-		StartRightFiftyFifty.addWaypointRelative(8.5, -1.0, 0.0);
+		StartRightFiftyFifty.addWaypointRelative(10, -1.0, 0.0);
 		StartRightFiftyFifty.addWaypointRelative(6.25, 5, 79.9);
 
-		 BobPathGenerator.exportArcToJavaFile(ScaleRightStartRight);
-		 BobPathGenerator.exportArcToJavaFile(ScaleLeftStartRight);
+		BobPathGenerator.exportArcToJavaFile(ScaleRightStartRight);
+		BobPathGenerator.exportArcToJavaFile(ScaleLeftStartRight);
 
 		BobPathGenerator.exportArcToJavaFile(StartRightFiftyFifty);
 
@@ -232,7 +231,7 @@ public class Main {
 
 		BobPath ScaleRightStartLeft = new BobPath(CrossScaleConfig, "ScaleRightStartLeft", -1);
 		ScaleRightStartLeft.addWaypoint(leftSideStartingWaypoint);
-		ScaleRightStartLeft.addWaypointRelative(8.5, 1.0, 0.0);
+		ScaleRightStartLeft.addWaypointRelative(10.0, 1.0, 0.0);
 		ScaleRightStartLeft.addWaypointRelative(6.25, -5, -79.9);
 		ScaleRightStartLeft.addWaypointRelative(1, -10, 0);
 		ScaleRightStartLeft.addWaypointRelative(5, -4, 59.9);
@@ -240,11 +239,11 @@ public class Main {
 
 		BobPath StartLeftFiftyFifty = new BobPath(config, "StartLeftFiftyFifty", -1);
 		StartLeftFiftyFifty.addWaypoint(leftSideStartingWaypoint);
-		StartLeftFiftyFifty.addWaypointRelative(8.5, 1.0, 0.0);
+		StartLeftFiftyFifty.addWaypointRelative(10, 1.0, 0.0);
 		StartLeftFiftyFifty.addWaypointRelative(6.25, -5, -79.9);
 
-		 BobPathGenerator.exportArcToJavaFile(ScaleLeftStartLeft);
-		 BobPathGenerator.exportArcToJavaFile(ScaleRightStartLeft);
+		BobPathGenerator.exportArcToJavaFile(ScaleLeftStartLeft);
+		BobPathGenerator.exportArcToJavaFile(ScaleRightStartLeft);
 
 		BobPathGenerator.exportArcToJavaFile(StartLeftFiftyFifty);
 	}
