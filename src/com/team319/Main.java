@@ -204,22 +204,21 @@ public class Main {
 
 		BobPath ScaleLeftStartRight = new BobPath(CrossScaleConfig, "ScaleLeftStartRight", -1);
 		ScaleLeftStartRight.addWaypoint(rightSideStartingWaypoint);
-		ScaleLeftStartRight.addWaypointRelative(10, -1.0, 0.0);
+		ScaleLeftStartRight.addWaypointRelative(9.0, -1.0, 0.0);
 		ScaleLeftStartRight.addWaypointRelative(6.25, 5, 79.9);
 		ScaleLeftStartRight.addWaypointRelative(1, 10, 0);
 		ScaleLeftStartRight.addWaypointRelative(5, 4, -59.9);
-		ScaleLeftStartRight.addWaypointRelative(4, 4, 69.9);
+		ScaleLeftStartRight.addWaypointRelative(4, 5, 69.9);
 
 		BobPath StartRightFiftyFifty = new BobPath(CrossScaleConfig, "StartRightFiftyFifty", -1);
 		StartRightFiftyFifty.addWaypoint(rightSideStartingWaypoint);
-		StartRightFiftyFifty.addWaypointRelative(10, -1.0, 0.0);
+		StartRightFiftyFifty.addWaypointRelative(9.0, -1.0, 0.0);
 		StartRightFiftyFifty.addWaypointRelative(6.25, 5, 79.9);
 
 		BobPathGenerator.exportArcToJavaFile(ScaleRightStartRight);
 		BobPathGenerator.exportArcToJavaFile(ScaleLeftStartRight);
 
 		BobPathGenerator.exportArcToJavaFile(StartRightFiftyFifty);
-
 	}
 
 	private static void generateLeftSide(SrxTranslatorConfig config) {
